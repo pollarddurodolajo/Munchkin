@@ -1,7 +1,7 @@
 
 public class MonsterCards extends DoorCards
 	{
-		MonsterConstructor m = new MonsterConstructor();
+		Monster m = new Monster();
 	}
 //.add(1, 1, "Lame Goblin", ,"Bad Stuff: He whacks you with his crutch. You lose a level.", 2);
 

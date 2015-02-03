@@ -1,5 +1,5 @@
 
-public class MonsterConstructor
+public class Monster
 {
 	private int monsterLevel;
 	private int lvsGivenIfDefeated;
@@ -9,7 +9,7 @@ public class MonsterConstructor
 	private int treasuresGivenIfDefeated;
 	
 
-	public MonsterConstructor(int mL, int lGID, String n, String iP, String bS, int tGID)
+	public Monster(int mL, int lGID, String n, String iP, String bS, int tGID)
 		{
 		monsterLevel = mL;
 		lvsGivenIfDefeated = lGID;
