@@ -1,22 +1,78 @@
 
-public class Monster
+public class DoorCardConstructor
 {
+	private String type;
 	private int monsterLevel;
 	private int lvsGivenIfDefeated;
 	private String name;
 	private String individualPerks;
 	private String badStuff;
 	private int treasuresGivenIfDefeated;
+	private String classPerks;
+	private String monsterEffects;
+	private String superM;
 	
 
-	public Monster(int mL, int lGID, String n, String iP, String bS, int tGID)
+	public DoorCardConstructor(String ty, int mL, int lGID, String n, String iP, String bS, int tGID, String cP, String mE, String sM)
 		{
+		type = ty;
 		monsterLevel = mL;
 		lvsGivenIfDefeated = lGID;
 		name = n;
 		individualPerks = iP;
 		badStuff = bS;
 		treasuresGivenIfDefeated = tGID;
+		classPerks = cP;
+		monsterEffects = mE;
+		superM = sM;
+		}
+
+
+	public String getClassPerks()
+		{
+		return classPerks;
+		}
+
+
+	public void setClassPerks(String classPerks)
+		{
+		this.classPerks = classPerks;
+		}
+
+
+	public String getMonsterEffects()
+		{
+		return monsterEffects;
+		}
+
+
+	public void setMonsterEffects(String monsterEffects)
+		{
+		this.monsterEffects = monsterEffects;
+		}
+
+
+	public String getSuperM()
+		{
+		return superM;
+		}
+
+
+	public void setSuperM(String superM)
+		{
+		this.superM = superM;
+		}
+
+
+	public String getType()
+		{
+		return type;
+		}
+
+
+	public void setType(String type)
+		{
+		this.type = type;
 		}
 
 

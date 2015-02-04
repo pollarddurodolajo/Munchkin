@@ -3,13 +3,13 @@ public class RaceCards
 	{
 
 	}
-public class RaceCards extends DoorCards
-
-{
-
-
-
-}
+//public class RaceCards extends DoorCards
+//
+//{
+//
+//
+//
+//}
 
 //.add("Elf", "You go up a level for every monster you help someone else kill.");
 
