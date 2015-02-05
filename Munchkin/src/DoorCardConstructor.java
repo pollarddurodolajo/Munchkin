@@ -13,7 +13,7 @@ public class DoorCardConstructor
 	private String superM;
 	
 
-	public DoorCardConstructor(String ty, int mL, int lGID, String n, String iP, String bS, int tGID, String cP, String mE, String sM)
+	public DoorCardConstructor(String ty, int mL, int lGID, String n, String iP, String bS, int tGID, String cP, int mE, String sM)
 		{
 		type = ty;
 		monsterLevel = mL;
@@ -40,13 +40,13 @@ public class DoorCardConstructor
 		}
 
 
-	public String getMonsterEffects()
+	public int getMonsterEffects()
 		{
 		return monsterEffects;
 		}
 
 
-	public void setMonsterEffects(String monsterEffects)
+	public void setMonsterEffects(int monsterEffects)
 		{
 		this.monsterEffects = monsterEffects;
 		}
