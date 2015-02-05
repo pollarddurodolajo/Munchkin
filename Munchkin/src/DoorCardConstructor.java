@@ -9,7 +9,7 @@ public class DoorCardConstructor
 	private String badStuff;
 	private int treasuresGivenIfDefeated;
 	private String classPerks;
-	private String monsterEffects;
+	private int monsterEffects;
 	private String superM;
 	
 
