@@ -7,7 +7,32 @@ public class DoorCards
 	protected String type;
 	protected String desc;
 	
-	ArrayList listOfDoorCards = new ArrayList ();
+	public String getName()
+		{
+		return name;
+		}
+	public void setName(String name)
+		{
+		this.name = name;
+		}
+	public String getType()
+		{
+		return type;
+		}
+	public void setType(String type)
+		{
+		this.type = type;
+		}
+	public String getDesc()
+		{
+		return desc;
+		}
+	public void setDesc(String desc)
+		{
+		this.desc = desc;
+		}
+	
+	static ArrayList listOfDoorCards = new ArrayList ();
 	public void makeDoorCards()
 		{
 		listOfDoorCards.add(new MonsterC("Monster", "Lame Goblin", 1, 1, "Bad Stuff: He whacks you with his crutch. You lose a level.", 2));

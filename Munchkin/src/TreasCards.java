@@ -5,7 +5,7 @@ public class TreasCards
 		protected String type;
 		protected String name;
 		
-		ArrayList listOfTC = new ArrayList();
+		static ArrayList listOfTC = new ArrayList();
 		public void makeTreasCards()
 		{
 		listOfTC.add(new Weapons("Weapon", "Mace of Sharpness", 4, 0, 600));
