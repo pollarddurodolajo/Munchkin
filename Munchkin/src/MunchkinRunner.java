@@ -25,7 +25,7 @@ public class MunchkinRunner
 		{
 		for(int i = 0; i < 6; i++)
 			{
-			if(DoorCards.listOfDoorCards.get(0).getType().equals("Monster"))
+//			if(DoorCards.listOfDoorCards.get(0).getType().equals("Monster"))
 			
 			}
 		}
