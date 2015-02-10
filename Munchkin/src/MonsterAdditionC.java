@@ -12,25 +12,7 @@ public class MonsterAdditionC extends DoorCards
 		effect = ef;
 		}
 
-	public String getName()
-		{
-		return name;
-		}
-
-	public void setName(String name)
-		{
-		this.name = name;
-		}
-
-	public String getDesc()
-		{
-		return desc;
-		}
-
-	public void setDesc(String desc)
-		{
-		this.desc = desc;
-		}
+	
 
 	public int getEffect()
 		{
@@ -42,13 +24,4 @@ public class MonsterAdditionC extends DoorCards
 		this.effect = effect;
 		}
 	
-	public void setType(String type)
-		{
-		this.type = type;
-		}
-	
-	public String getType()
-		{
-		return type;
-		}
 	}

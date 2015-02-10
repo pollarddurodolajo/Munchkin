@@ -1,11 +1,9 @@
 import java.util.ArrayList;
 
-public class TreasCards
-{
-		protected String type;
-		protected String name;
-		
+public class TreasCards extends Cards
+{		
 		static ArrayList listOfTC = new ArrayList();
+			
 		public void makeTreasCards()
 		{
 		listOfTC.add(new Weapons("Weapon", "Mace of Sharpness", 4, 0, 600));

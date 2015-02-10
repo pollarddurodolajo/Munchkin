@@ -1,28 +1,12 @@
 import java.util.ArrayList;
 
 
-public class DoorCards
+public class DoorCards extends Cards
 	{
-	protected String name;
-	protected String type;
+	
 	protected String desc;
 	
-	public String getName()
-		{
-		return name;
-		}
-	public void setName(String name)
-		{
-		this.name = name;
-		}
-	public String getType()
-		{
-		return type;
-		}
-	public void setType(String type)
-		{
-		this.type = type;
-		}
+	
 	public String getDesc()
 		{
 		return desc;
@@ -32,7 +16,7 @@ public class DoorCards
 		this.desc = desc;
 		}
 	
-	static ArrayList listOfDoorCards = new ArrayList ();
+	static ArrayList<Cards> listOfDoorCards = new ArrayList <Cards>();
 	public void makeDoorCards()
 		{
 		listOfDoorCards.add(new MonsterC("Monster", "Lame Goblin", 1, 1, "Bad Stuff: He whacks you with his crutch. You lose a level.", 2));

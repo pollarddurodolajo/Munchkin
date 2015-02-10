@@ -26,16 +26,7 @@ public class MonsterC extends DoorCards
 		this.treasures = treasures;
 		}
 
-	public String getName()
-		{
-		return name;
-		}
-
-	public void setName(String name)
-		{
-		this.name = name;
-		}
-
+	
 	public int getLevel()
 		{
 		return level;
@@ -56,25 +47,7 @@ public class MonsterC extends DoorCards
 		this.levelsGiven = levelsGiven;
 		}
 
-	public String getDesc()
-		{
-		return desc;
-		}
-
-	public void setDesc(String desc)
-		{
-		this.desc = desc;
-		}
-	
-	public void setType(String type)
-		{
-		this.type = type;
-		}
-	
-	public String getType()
-		{
-		return type;
-		}
+		
 	
 	}
 
