@@ -13,7 +13,7 @@ public class MunchkinRunner
 		initialDeal();
 		while(p.getLevel() <=9)
 			{
-			playerCards.add(DoorCards.listOfDoorCards.get(0));
+
 			System.out.println(playerCards.get(0).getLevel());
 //			kickOpenTheDoor(p.getLevel());
 //			lookForTrouble();
@@ -31,7 +31,7 @@ public class MunchkinRunner
 				{
 //					playerCards.add(new MonsterC(DoorCards.listOfDoorCards.get(0).getType(), DoorCards.listOfDoorCards.get(0).getName(), DoorCards.listOfDoorCards.get(0).getLevel(), 
 //							DoorCards.listOfDoorCards.get(0).getLevelsGiven(), DoorCards.listOfDoorCards.get(0).getDesc(), DoorCards.listOfDoorCards.get(0).getTreasures()));
-
+				playerCards.add(DoorCards.listOfDoorCards.get(0));
 			
 				}
 			
