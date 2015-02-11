@@ -4,6 +4,10 @@ public class TreasCards
 {		
 		protected String type;
 		protected String name;
+		protected int bonus;
+		protected int goldValue;
+		protected int goldVal;
+		protected int bigOrSmall;
 		
 		public String getName()
 		{
@@ -21,7 +25,49 @@ public class TreasCards
 		{
 		this.type = type;
 		}
+	
+	public int getBonus()
+		{
+		return bonus;
+		}
+
+	public void setBonus(int bonus)
+		{
+		this.bonus = bonus;
+		}
+
+	public int getGoldValue()
+		{
+		return goldValue;
+		}
+
+	public void setGoldValue(int goldValue)
+		{
+		this.goldValue = goldValue;
+		}
+	public int getGoldVal()
+		{
+		return goldVal;
+		}
+	
+	public void setGoldVal(int goldVal)
+		{
+		this.goldVal = goldVal;
+		}
+	
+	public int getBigOrSmall()
+		{
+		return bigOrSmall;
+		}
+	
+	public void setBigOrSmall(int bigOrSmall)
+		{
+		this.bigOrSmall = bigOrSmall;
+		}
+	
+	
 		static ArrayList<TreasCards >listOfTC = new ArrayList<TreasCards>();
+	
 			
 		public void makeTreasCards()
 		{

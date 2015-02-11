@@ -2,11 +2,56 @@ import java.util.ArrayList;
 
 
 public class DoorCards 
-	{
-	
+	{	
 	protected String desc;
 	protected String type;
 	protected String name;
+	protected int level;
+	protected int treasures;
+	protected int levelsGiven;
+	protected int effect;
+	
+
+	public int getEffect()
+		{
+		return effect;
+		}
+
+	public void setEffect(int effect)
+		{
+		this.effect = effect;
+		}
+	
+	public int getTreasures()
+		{
+		return treasures;
+		}
+
+	public void setTreasures(int treasures)
+		{
+		this.treasures = treasures;
+		}
+
+	
+	public int getLevel()
+		{
+		return level;
+		}
+
+	public void setLevel(int level)
+		{
+		this.level = level;
+		}
+
+	public int getLevelsGiven()
+		{
+		return levelsGiven;
+		}
+
+	public void setLevelsGiven(int levelsGiven)
+		{
+		this.levelsGiven = levelsGiven;
+		}
 	
 	public String getDesc()
 		{
@@ -32,6 +77,8 @@ public void setType(String type)
 	{
 	this.type = type;
 	}
+
+
 	
 	static ArrayList<DoorCards> listOfDoorCards = new ArrayList <DoorCards>();
 	public void makeDoorCards()
