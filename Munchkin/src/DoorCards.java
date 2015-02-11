@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
 
-public class DoorCards extends Cards
+public class DoorCards 
 	{
 	
 	protected String desc;
-	
+	protected String type;
+	protected String name;
 	
 	public String getDesc()
 		{
@@ -15,8 +16,24 @@ public class DoorCards extends Cards
 		{
 		this.desc = desc;
 		}
+	public String getName()
+	{
+	return name;
+	}
+public void setName(String name)
+	{
+	this.name = name;
+	}
+public String getType()
+	{
+	return type;
+	}
+public void setType(String type)
+	{
+	this.type = type;
+	}
 	
-	static ArrayList<Cards> listOfDoorCards = new ArrayList <Cards>();
+	static ArrayList<DoorCards> listOfDoorCards = new ArrayList <DoorCards>();
 	public void makeDoorCards()
 		{
 		listOfDoorCards.add(new MonsterC("Monster", "Lame Goblin", 1, 1, "Bad Stuff: He whacks you with his crutch. You lose a level.", 2));
@@ -56,9 +73,9 @@ public class DoorCards extends Cards
 		listOfDoorCards.add(new ClassC("Class", "Super Munchkin", "You may have two Class cards, and have all of the advantages and disadvantages of each. Or you may have all of its advantages and none of its disadvantages (for example, monsters that hate Clerics will have no bonus against a Super Cleric). Lose this card if you lose all your Class card(s)."));
 		listOfDoorCards.add(new ClassC("Class", "Super Munchkin", "You may have two Class cards, and have all of the advantages and disadvantages of each. Or you may have all of its advantages and none of its disadvantages (for example, monsters that hate Clerics will have no bonus against a Super Cleric). Lose this card if you lose all your Class card(s)."));
 		listOfDoorCards.add(new MonsterAdditionC("MonsterAddition", "Ancient", "+10 to Monster", 10));
-		listOfDoorCards.add(new MonsterAdditionC("MonsterAddition", "Enraged", "Play during combat. If the monster is defeated, draw one extra Treasure. +5 to Monster", 10));
-		listOfDoorCards.add(new MonsterAdditionC("MonsterAddition", "Intelligent", "Play during combat. If the monster is defeated, draw one extra Treasure. +5 to Monster", 10));
-		listOfDoorCards.add(new MonsterAdditionC("MonsterAddition", "Humongous", "Play during combat. If the monster is defeated, draw two extra Treasures. +5 to Monster", 10));
+		listOfDoorCards.add(new MonsterAdditionC("MonsterAddition", "Enraged", "Play during combat. If the monster is defeated, draw one extra Treasure. +5 to Monster", 5));
+		listOfDoorCards.add(new MonsterAdditionC("MonsterAddition", "Intelligent", "Play during combat. If the monster is defeated, draw one extra Treasure. +5 to Monster", 5));
+		listOfDoorCards.add(new MonsterAdditionC("MonsterAddition", "Humongous", "Play during combat. If the monster is defeated, draw two extra Treasures. +5 to Monster", 5));
 		}
 	}
 	

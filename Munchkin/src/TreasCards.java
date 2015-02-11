@@ -1,8 +1,27 @@
 import java.util.ArrayList;
 
-public class TreasCards extends Cards
+public class TreasCards 
 {		
-		static ArrayList listOfTC = new ArrayList();
+		protected String type;
+		protected String name;
+		
+		public String getName()
+		{
+		return name;
+		}
+	public void setName(String name)
+		{
+		this.name = name;
+		}
+	public String getType()
+		{
+		return type;
+		}
+	public void setType(String type)
+		{
+		this.type = type;
+		}
+		static ArrayList<TreasCards >listOfTC = new ArrayList<TreasCards>();
 			
 		public void makeTreasCards()
 		{
