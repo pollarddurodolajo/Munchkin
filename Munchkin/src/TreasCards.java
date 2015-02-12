@@ -69,7 +69,7 @@ public class TreasCards
 		static ArrayList<TreasCards >listOfTC = new ArrayList<TreasCards>();
 	
 			
-		public void makeTreasCards()
+		public static void makeTreasCards()
 		{
 		listOfTC.add(new Weapons("Weapon", "Mace of Sharpness", 4, 0, 600));
 		listOfTC.add(new Weapons("Weapon", "Broad Sword", 3, 0, 400));
