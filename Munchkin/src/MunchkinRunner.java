@@ -8,6 +8,7 @@ public class MunchkinRunner
 	static ArrayList<TreasCards> playerTCards = new ArrayList<TreasCards>();
 	static Player p = new Player("", "","", 1, 1);
 	static int counter = 1;
+	static int mK = 0;
 	static private final String setPlain = "\033[0;0m";
 	static private final String setBold = "\033[0;1m";
 	static int allLevels = p.getLevel();
@@ -29,7 +30,8 @@ public class MunchkinRunner
 			{
 			System.out.println("You played such a bad game you ran out of cards. . . Push start to retry.");
 			}
-		if(p.getLevel() >= 9)
+		
+		else if(p.getLevel() >= 9)
 			{
 			System.out.println("You've gotten to the tenth level and completed the game!");
 			}
@@ -351,6 +353,7 @@ public class MunchkinRunner
 				{
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Lame Goblin"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					System.out.println();
 					System.out.println("You've defeated the monster. Good job!");
@@ -363,6 +366,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Maul Rat"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					System.out.println("You've defeated the monster. Good job!");
 					printNewCards();
@@ -372,6 +376,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Hippogriff"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -381,6 +386,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Large Angry Chicken"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					System.out.println("You've defeated the monster. Good job!");
 					printNewCards();
@@ -390,6 +396,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Squidzilla"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -399,6 +406,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("BigFoot"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -408,6 +416,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Shrieking Geek"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -417,6 +426,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("King Tut"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -426,6 +436,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Ghoulfiends"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -435,6 +446,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Net Troll"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -444,6 +456,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Potted Plant"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -453,6 +466,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Harpies"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -462,6 +476,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Tongue Demon"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -471,6 +486,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Lawyers"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -480,6 +496,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("3,872 Orcs"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -489,6 +506,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Leperchaun"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
@@ -498,6 +516,7 @@ public class MunchkinRunner
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Wannabe Vampire"))
 					{
+					mK++;
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
