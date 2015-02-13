@@ -7,6 +7,9 @@ public class MunchkinRunner
 	static ArrayList<DoorCards> playerDCards = new ArrayList<DoorCards>();
 	static ArrayList<TreasCards> playerTCards = new ArrayList<TreasCards>();
 	static Player p = new Player("", "","", 1, 1);
+	static int counter = 1;
+	static private final String setPlain = "\033[0;0m";
+	static private final String setBold = "\033[0;1m";
 	static int allLevels = p.getLevel();
 	public static void main(String[] args)
 		{
@@ -15,13 +18,21 @@ public class MunchkinRunner
 		Collections.shuffle(DoorCards.listOfDoorCards);
 		Collections.shuffle(TreasCards.listOfTC);
 		getPlayerInfo();
-		initialDeal(allLevels);
-
-//		while(p.getLevel() <=9)
-//			{
-//			kickOpenTheDoor(p.getLevel());
-//			}
-		System.out.println("You've gotten to the tenth level and completed the game!");
+		addIDoor();
+		addITreas();
+		initialLevel(allLevels);
+		while(p.getLevel() <=9 && DoorCards.listOfDoorCards.size() >=2 && TreasCards.listOfTC.size() >= 2)
+			{
+			kickOpenTheDoor(p.getLevel());
+			}
+		if(DoorCards.listOfDoorCards.size() <=2  || TreasCards.listOfTC.size() <= 2)
+			{
+			System.out.println("You played such a bad game you ran out of cards. . . Push start to retry.");
+			}
+		if(p.getLevel() >= 9)
+			{
+			System.out.println("You've gotten to the tenth level and completed the game!");
+			}
 		}
 	
 	public static void getPlayerInfo()
@@ -31,101 +42,257 @@ public class MunchkinRunner
 		String name = input1.nextLine();
 		p.setName(name);
 	}
-	public static int initialDeal(int lWB)
+	public static void addIDoor()
 		{
 		// get three door cards
-		System.out.println(playerDCards.size());
-		System.out.println(playerTCards.size());
 		for(int i = 0; i < 3; i++)
 			{
 			if((DoorCards.listOfDoorCards.get(i)).getType().equals("Monster"))
 				{
-				System.out.println("New Card: ");
+				System.out.println("New Monster Card: ");
 				playerDCards.add(DoorCards.listOfDoorCards.get(i));	
 				System.out.println(playerDCards.get(i).getName());
 				System.out.println("Level: " + playerDCards.get(i).getLevel());
 				System.out.println(playerDCards.get(i).getDesc());
 				System.out.println();
-				DoorCards.listOfDoorCards.remove(i);
+
 				}	
 			if((DoorCards.listOfDoorCards.get(i)).getType().equals("Curse"))
 				{
-				System.out.println("New Card: ");
+				System.out.println("New Curse Card: ");
 				playerDCards.add(DoorCards.listOfDoorCards.get(i));
 				System.out.println(playerDCards.get(i).getName());
 				System.out.println(playerDCards.get(i).getDesc());
 				System.out.println();
-				DoorCards.listOfDoorCards.remove(i);
+
 				}			
 			if((DoorCards.listOfDoorCards.get(i)).getType().equals("Class"))
 				{
-				System.out.println("New Card: ");
+				System.out.println("New Class Card: ");
 				playerDCards.add(DoorCards.listOfDoorCards.get(i));
 				System.out.println(playerDCards.get(i).getName());
 				System.out.println(playerDCards.get(i).getDesc());
 				System.out.println();
-				DoorCards.listOfDoorCards.remove(i);
+
 				}	
+			
+			}
+		System.out.println("------------------------------");
+		System.out.println("Done dealing intial Door Cards");
+		System.out.println("------------------------------");
+		System.out.println();
+		DoorCards.listOfDoorCards.remove(0);
+		DoorCards.listOfDoorCards.remove(0);
+		DoorCards.listOfDoorCards.remove(0);
+		}
+	
+	public static void addITreas()
+	{
+//		 get three treas cards		
+		for(int t = 0; t < 3; t++)
+			{
+			if((TreasCards.listOfTC.get(t)).getType().equals("Weapon"))
+				{
+				System.out.println("New Weapon Card: ");
+				playerTCards.add(TreasCards.listOfTC.get(t));
+				System.out.println(playerTCards.get(t).getName());
+				System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+				System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+				System.out.println();
+	
+				}
+			
+			else if((TreasCards.listOfTC.get(t)).getType().equals("Potion"))
+				{
+				System.out.println("New Potion Card: ");
+				playerTCards.add(TreasCards.listOfTC.get(t));
+				System.out.println(playerTCards.get(t).getName());
+				System.out.println(playerTCards.get(t).getDesc());
+				System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+				System.out.println();
+
+				}
+			
+			else if((TreasCards.listOfTC.get(t)).getType().equals("Armor"))
+				{
+				System.out.println("New Armor Card: ");
+				playerTCards.add(TreasCards.listOfTC.get(t));
+				System.out.println(playerTCards.get(t).getName());
+				System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+				System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+				System.out.println();
+
+				}
+			
+			else if((TreasCards.listOfTC.get(t)).getType().equals("Footgear"))
+				{
+				System.out.println("New Armor Card: ");
+				playerTCards.add(TreasCards.listOfTC.get(t));
+				System.out.println(playerTCards.get(t).getName());
+				System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+				System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+				System.out.println();
+
+				}
+			else if((TreasCards.listOfTC.get(t)).getType().equals("Headgear"))
+			{
+			System.out.println("New Armor Card: ");
+			playerTCards.add(TreasCards.listOfTC.get(t));
+			System.out.println(playerTCards.get(t).getName());
+			System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+			System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+			System.out.println();
+
+			}
+			
+			else if(TreasCards.listOfTC.get(t).getType().equals("Random Bonus"))
+				{
+				System.out.println("New Bonus Card: ");
+				playerTCards.add(TreasCards.listOfTC.get(t));
+				System.out.println(playerTCards.get(t).getName());
+				System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+				System.out.println();
+				}
+			
+			else if(TreasCards.listOfTC.get(t).getType().equals("Race"))
+				{
+				System.out.println("New Race Card: ");
+				playerTCards.add(TreasCards.listOfTC.get(t));
+				System.out.println(playerTCards.get(t).getName());
+				System.out.println(playerTCards.get(t).getDesc());
+				System.out.println();
+				}
+			}
+		System.out.println("------------------------------------");
+		System.out.println("Done dealing initial Treasure Cards.");
+		System.out.println("------------------------------------");
+		TreasCards.listOfTC.remove(0);
+		TreasCards.listOfTC.remove(0);
+		TreasCards.listOfTC.remove(0);		 
+	}
+	public static void printNewCards()
+	{	
+		for(int t = 0; t < DoorCards.listOfDoorCards.get(0).getTreasures(); t++)
+		{
+		if((TreasCards.listOfTC.get(t)).getType().equals("Weapon"))
+			{
+			System.out.println();
+			System.out.println("New Weapon Card: ");
+			playerTCards.add(TreasCards.listOfTC.get(t));
+			System.out.println(playerTCards.get(t).getName());
+			System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+			System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+			System.out.println();
+
 			}
 		
-		// get three treas cards		
-		for(int i = 0; i < 3; i++)
+		else if((TreasCards.listOfTC.get(t)).getType().equals("Potion"))
 			{
-			if((TreasCards.listOfTC.get(i)).getType().equals("Weapon"))
-				{
-				System.out.println("New Card: ");
-				playerTCards.add(TreasCards.listOfTC.get(i));
-				System.out.println(playerTCards.get(i).getName());
-				System.out.println("Bonus: " + playerTCards.get(i).getBonus());
-				System.out.println("Gold Value: " + playerTCards.get(i).getGoldVal());
-				System.out.println();
-				TreasCards.listOfTC.remove(i);
-				}
-			
-			if((TreasCards.listOfTC.get(0)).getType().equals("Potion"))
-				{
-				System.out.println("New Card: ");
-				playerTCards.add(TreasCards.listOfTC.get(i));
-				System.out.println(playerTCards.get(i).getName());
-				System.out.println(playerTCards.get(i).getDesc());
-				System.out.println("Gold Value: " + playerTCards.get(i).getGoldVal());
-				System.out.println();
-				TreasCards.listOfTC.remove(i);
-				}
-			
-			if((TreasCards.listOfTC.get(i)).getType().equals("Armor"))
-				{
-				System.out.println("New Card: ");
-				playerTCards.add(TreasCards.listOfTC.get(i));
-				System.out.println(playerTCards.get(i).getName());
-				System.out.println("Bonus: " + playerTCards.get(i).getBonus());
-				System.out.println("Gold Value: " + playerTCards.get(i).getGoldVal());
-				System.out.println();
-				TreasCards.listOfTC.remove(i);
-				}
-			
-			if((TreasCards.listOfTC.get(i)).getType().equals("Footgear"))
-				{
-				System.out.println("New Card: ");
-				playerTCards.add(TreasCards.listOfTC.get(i));
-				System.out.println(playerTCards.get(i).getName());
-				System.out.println("Bonus: " + playerTCards.get(i).getBonus());
-				System.out.println("Gold Value: " + playerTCards.get(i).getGoldVal());
-				System.out.println();
-				TreasCards.listOfTC.remove(i);
-				}
-			
-			if((TreasCards.listOfTC.get(i)).getType().equals("RandomBonus"))
-				{
-				System.out.println("New Card: ");
-				playerTCards.add(TreasCards.listOfTC.get(i));
-				System.out.println(playerTCards.get(i).getName());
-				System.out.println("Bonus: " + playerTCards.get(i).getBonus());
-				System.out.println();
-				TreasCards.listOfTC.remove(i);
-				}
+			System.out.println();
+			System.out.println("New Potion Card: ");
+			playerTCards.add(TreasCards.listOfTC.get(t));
+			System.out.println(playerTCards.get(t).getName());
+			System.out.println(playerTCards.get(t).getDesc());
+			System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+			System.out.println();
+
 			}
-		// add up levels with bonuses
+		
+		else if((TreasCards.listOfTC.get(t)).getType().equals("Armor"))
+			{
+			System.out.println();
+			System.out.println("New Armor Card: ");
+			playerTCards.add(TreasCards.listOfTC.get(t));
+			System.out.println(playerTCards.get(t).getName());
+			System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+			System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+			System.out.println();
+
+			}
+		
+		else if((TreasCards.listOfTC.get(t)).getType().equals("Footgear"))
+			{
+			System.out.println();
+			System.out.println("New Armor Card: ");
+			playerTCards.add(TreasCards.listOfTC.get(t));
+			System.out.println(playerTCards.get(t).getName());
+			System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+			System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+			System.out.println();
+
+			}
+		else if((TreasCards.listOfTC.get(t)).getType().equals("Headgear"))
+			{
+			System.out.println();
+			System.out.println("New Armor Card: ");
+			playerTCards.add(TreasCards.listOfTC.get(t));
+			System.out.println(playerTCards.get(t).getName());
+			System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+			System.out.println("Gold Value: " + playerTCards.get(t).getGoldVal());
+			System.out.println();
+			}
+		
+		else if(TreasCards.listOfTC.get(t).getType().equals("Random Bonus"))
+			{
+			System.out.println();
+			System.out.println("New Bonus Card: ");
+			playerTCards.add(TreasCards.listOfTC.get(t));
+			System.out.println(playerTCards.get(t).getName());
+			System.out.println("Bonus: " + playerTCards.get(t).getBonus());
+			System.out.println();
+			}
+		
+		else if(TreasCards.listOfTC.get(t).getType().equals("Race"))
+			{
+			System.out.println();
+			System.out.println("New Race Card: ");
+			playerTCards.add(TreasCards.listOfTC.get(t));
+			System.out.println(playerTCards.get(t).getName());
+			System.out.println(playerTCards.get(t).getDesc());
+			System.out.println();
+			}
+		}
+	System.out.println("------------------------------------");
+	System.out.println("Done dealing new Cards.");
+	System.out.println("------------------------------------");
+	
+	for(int y = 0; y < DoorCards.listOfDoorCards.get(0).getTreasures(); y++)
+		{
+		TreasCards.listOfTC.remove(y);
+		}
+	}
+	public static void recountLevels()
+	{
+		allLevels = 0;
+		for(int z = 0; z < playerTCards.size(); z++)
+		{
+			if(playerTCards.get(z).getType().equals("Weapon"))
+			{
+			allLevels = allLevels + playerTCards.get(z).getBonus();
+			}
+		if(playerTCards.get(z).getType().equals("Armor"))
+			{
+			allLevels = allLevels + playerTCards.get(z).getBonus();
+			}
+		if(playerTCards.get(z).getType().equals("Random Bonus"))
+			{
+			allLevels = allLevels + playerTCards.get(z).getBonus();	
+			}
+		if(playerTCards.get(z).getType().equals("Footgear"))
+			{
+			allLevels = allLevels + playerTCards.get(z).getBonus();
+			}
+		if(playerTCards.get(z).getType().equals("Headgear"))
+			{		
+			allLevels = allLevels + playerTCards.get(z).getBonus();
+			}
+		}
+		allLevels  = allLevels + p.getLevel();
+		System.out.println("Your level including bonuses from your items is " + allLevels+".");
+	}
+	
+	public static int initialLevel(int lWB)
+	{
 		for(int c = 0; c < playerTCards.size(); c++)
 			{
 			if(playerTCards.get(c).getType().equals("Weapon"))
@@ -136,258 +303,214 @@ public class MunchkinRunner
 				{
 				lWB = lWB + playerTCards.get(c).getBonus();
 				}
-			if(playerTCards.get(c).getType().equals("RandomBonus"))
+			if(playerTCards.get(c).getType().equals("Random Bonus"))
 				{
 				lWB = lWB + playerTCards.get(c).getBonus();	
 				}
+			if(playerTCards.get(c).getType().equals("Footgear"))
+				{
+				lWB = lWB + playerTCards.get(c).getBonus();
+				}
+			if(playerTCards.get(c).getType().equals("Headgear"))
+				{		
+				lWB = lWB + playerTCards.get(c).getBonus();
+				}
 			}
-		System.out.println(playerTCards.size());
-		System.out.println(playerDCards.size());
 		System.out.println("-----------------------");
 		System.out.println("Dealing cards complete.");
 		System.out.println("-----------------------");
 		allLevels = lWB;
 		System.out.println("Your level including the bonuses from your items is: " + allLevels);
+		System.out.println();
 		return lWB;
-		}
+	}
+	
 	public static int kickOpenTheDoor(int lev)
 		{
+		System.out.println();
+		System.out.println("Door Cards Left: " + DoorCards.listOfDoorCards.size());
+		System.out.println("Treasure Cards Left: " + TreasCards.listOfTC.size());
+		System.out.println();
 		if(DoorCards.listOfDoorCards.get(0).getType().equals("Monster"))
 			{
+			System.out.println("-------");
+			System.out.println("Turn: " + counter);
+			System.out.println("-------");
+			counter++;
+			System.out.println("--------");
+			System.out.println("Level: " + p.getLevel());
+			System.out.println("--------");
+			System.out.println();
 			System.out.println(DoorCards.listOfDoorCards.get(0).getName());
 			System.out.println("Level:" + DoorCards.listOfDoorCards.get(0).getLevel());
 			System.out.println(DoorCards.listOfDoorCards.get(0).getDesc());
 			
-			System.out.println("It is time to fight the monster. You have " + allLevels + " and the monster is Level " + DoorCards.listOfDoorCards.get(0).getLevel());
+			System.out.println("It is time to fight the monster. You have " + allLevels + " Levels and the monster is Level " + DoorCards.listOfDoorCards.get(0).getLevel() + ".");
 			
 			if(allLevels >= DoorCards.listOfDoorCards.get(0).getLevel())
 				{
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Lame Goblin"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
+					System.out.println();
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
 					p.setLevel(lev);
 					System.out.println();
+					recountLevels();
+					
+		
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Maul Rat"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
 					p.setLevel(lev);
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Hippogriff"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
-				if(DoorCards.listOfDoorCards.get(0).getName().equals("Large Anrgy Chicken"))
+				if(DoorCards.listOfDoorCards.get(0).getName().equals("Large Angry Chicken"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					p.setLevel(lev);
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Squidzilla"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("BigFoot"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Shrieking Geek"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("King Tut"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Ghoulfiends"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Net Troll"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);					
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Potted Plant"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Harpies"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);					
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Tongue Demon"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);					
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);					
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Lawyers"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);					
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("3,872 Orcs"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);					
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Leperchaun"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);					
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
 				if(DoorCards.listOfDoorCards.get(0).getName().equals("Wannabe Vampire"))
 					{
 					lev = lev + DoorCards.listOfDoorCards.get(0).getLevelsGiven();
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
-					playerTCards.add(TreasCards.listOfTC.get(0));
-					TreasCards.listOfTC.remove(0);
 					p.setLevel(lev);
 					System.out.println("You've defeated the monster. Good job!");
+					printNewCards();
+					recountLevels();
 					System.out.println();
 					}
-				for(int c = 0; c < playerTCards.size(); c++)
-				{
-					allLevels = 0;
-				if(playerTCards.get(c).getType().equals("Weapon"))
-					{
-					allLevels = allLevels + playerTCards.get(c).getBonus();
-					}
-				if(playerTCards.get(c).getType().equals("Armor"))
-					{
-					allLevels = allLevels + playerTCards.get(c).getBonus();
-					}
-				if(playerTCards.get(c).getType().equals("RandomBonus"))
-					{
-					allLevels = allLevels + playerTCards.get(c).getBonus();	
-					}
-				allLevels = allLevels + lev;
-				}
 				}
 			if(allLevels < DoorCards.listOfDoorCards.get(0).getLevel())
 				{
 				int die = (int) (Math.random() * 6) + 1;
-				System.out.println(die);
-				System.out.println("Since you dont have the levels to beat the monster so you must roll the die to see if you can escape!");
+				System.out.println("Since you dont have the levels to beat the monster you must roll the die to see if you can escape!");
+				System.out.println("You rolled a " + die + ".");
 				if(die >= 5)
 					{
 					System.out.println("You barely escaped but you're still on the same level.");
@@ -416,9 +539,9 @@ public class MunchkinRunner
 							{
 							playerTCards.remove(0);
 							playerTCards.remove(0);
-							for(int t = 0; t < 2; t++)
+							int actL = 0;
+							for(int t = 0; t < playerTCards.size(); t++)
 								{
-								int actL  = 0;
 								if(playerTCards.get(t).getType().equals("Weapon"))
 									{
 									actL = actL + playerTCards.get(t).getBonus();
@@ -431,8 +554,16 @@ public class MunchkinRunner
 									{
 									actL = actL + playerTCards.get(t).getBonus();	
 									}	
-								allLevels = actL;
+								if(playerTCards.get(t).getType().equals("Headgear"))
+									{
+									actL = actL + playerTCards.get(t).getBonus();
+									}
+								if(playerTCards.get(t).getType().equals("Footgear"))
+									{
+									actL = actL + playerTCards.get(t).getBonus();
+									}
 								}
+							allLevels = actL + p.getLevel();
 							}
 						else
 							{
@@ -534,9 +665,9 @@ public class MunchkinRunner
 						{
 							playerTCards.remove(0);
 							playerTCards.remove(0);
-							for(int t = 0; t < 2; t++)
+							int actL = 0;
+							for(int t = 0; t < playerTCards.size(); t++)
 								{
-								int actL  = 0;
 								if(playerTCards.get(t).getType().equals("Weapon"))
 									{
 									actL = actL + playerTCards.get(t).getBonus();
@@ -549,8 +680,16 @@ public class MunchkinRunner
 									{
 									actL = actL + playerTCards.get(t).getBonus();	
 									}	
-								allLevels = actL;
+								if(playerTCards.get(t).getType().equals("Headgear"))
+									{
+									actL = actL + playerTCards.get(t).getBonus();
+									}
+								if(playerTCards.get(t).getType().equals("Footgear"))
+									{
+									actL = actL + playerTCards.get(t).getBonus();
+									}
 								}
+							allLevels = actL + p.getLevel();
 							}
 						else
 							{
@@ -571,9 +710,9 @@ public class MunchkinRunner
 							{
 								playerTCards.remove(0);
 								playerTCards.remove(0);
-								for(int t = 0; t < 2; t++)
+								int actL = 0;
+								for(int t = 0; t < playerTCards.size(); t++)
 									{
-									int actL  = 0;
 									if(playerTCards.get(t).getType().equals("Weapon"))
 										{
 										actL = actL + playerTCards.get(t).getBonus();
@@ -586,8 +725,16 @@ public class MunchkinRunner
 										{
 										actL = actL + playerTCards.get(t).getBonus();	
 										}	
-									allLevels = actL;
+									if(playerTCards.get(t).getType().equals("Headgear"))
+										{
+										actL = actL + playerTCards.get(t).getBonus();
+										}
+									if(playerTCards.get(t).getType().equals("Footgear"))
+										{
+										actL = actL + playerTCards.get(t).getBonus();
+										}
 									}
+								allLevels = actL + p.getLevel();
 							}
 							else
 							{
@@ -619,9 +766,9 @@ public class MunchkinRunner
 					if(playerTCards.size() > 1)
 					{
 						playerTCards.remove(0);
-						for(int t = 0; t < 1; t++)
+						int actL = 0;
+						for(int t = 0; t < playerTCards.size(); t++)
 							{
-							int actL  = 0;
 							if(playerTCards.get(t).getType().equals("Weapon"))
 								{
 								actL = actL + playerTCards.get(t).getBonus();
@@ -634,8 +781,16 @@ public class MunchkinRunner
 								{
 								actL = actL + playerTCards.get(t).getBonus();	
 								}	
-							allLevels = actL;
+							if(playerTCards.get(t).getType().equals("Headgear"))
+								{
+								actL = actL + playerTCards.get(t).getBonus();
+								}
+							if(playerTCards.get(t).getType().equals("Footgear"))
+								{
+								actL = actL + playerTCards.get(t).getBonus();
+								}
 							}
+						allLevels = actL + p.getLevel();
 					}
 					else
 					{
@@ -648,9 +803,9 @@ public class MunchkinRunner
 					{
 						playerTCards.remove(0);
 						playerTCards.remove(0);
-						for(int t = 0; t < 2; t++)
+						int actL = 0;
+						for(int t = 0; t < playerTCards.size(); t++)
 							{
-							int actL  = 0;
 							if(playerTCards.get(t).getType().equals("Weapon"))
 								{
 								actL = actL + playerTCards.get(t).getBonus();
@@ -663,8 +818,16 @@ public class MunchkinRunner
 								{
 								actL = actL + playerTCards.get(t).getBonus();	
 								}	
-							allLevels = actL;
+							if(playerTCards.get(t).getType().equals("Headgear"))
+								{
+								actL = actL + playerTCards.get(t).getBonus();
+								}
+							if(playerTCards.get(t).getType().equals("Footgear"))
+								{
+								actL = actL + playerTCards.get(t).getBonus();
+								}
 							}
+						allLevels = actL + p.getLevel();
 					}
 					else
 					{
